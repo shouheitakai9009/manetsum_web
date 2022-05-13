@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import reportWebVitals from './reportWebVitals'
+import { LpPage } from '@/components/pages'
+import { Mypage } from '@/components/pages/mypage'
 import './stylesheet/App.scss'
 
 const root = ReactDOM.createRoot(
@@ -9,7 +11,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LpPage />} />
+        <Route path="mypage" element={<Mypage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
