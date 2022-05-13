@@ -1,0 +1,9 @@
+body {
+  background-color: #f00;
+  @include mq(sp) {
+    background-color: #0f0;
+  }
+  @include mq(tab) {
+    background-color: #00f;
+  }
+}
