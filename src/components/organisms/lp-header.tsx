@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react'
-import axios from 'axios'
 import { useModal } from 'react-hooks-use-modal'
 import { Button } from '@/components/atoms/button'
 import { SiteLogo } from '@/components/molecules/site-logo'
 import toast from '@/utilities/toaster'
+import { post } from '@/services/api'
+import { signin } from '@/services/signin'
 
 export const LpHeader: React.FC = () => {
 
@@ -18,24 +19,11 @@ export const LpHeader: React.FC = () => {
   }, [open])
 
   const onSubmit = useCallback(async () => {
-    const response = await axios.post("http://127.0.0.1:8000/api/auth/token/login", {
-      email,
-      password
-    }).catch(({ response }) => {
-      switch (response.status) {
-        case 400: {
-          toast().error(response.data.non_field_errors[0])
-          break
-        }
-        default: {
-          toast().warning(`訳のわからないエラーが出たよ！statusは${response.status}らしいよ！`)
-          break
-        }
-      }
-    })
-    if (!response) return
-    if (response.status === 200) {
-      toast().success("ログインに成功しました！おかえり！")
+    if (whichLogin) {
+      await signin()
+    } else {
+      const response = await post("auth/users", { email, password })
+      
     }
   }, [email, password])
 
@@ -52,6 +40,7 @@ export const LpHeader: React.FC = () => {
           <section>
             <div style={{ display: 'flex' }}>
               <Button text='ログイン' onClick={() => clickMembership(true)} />
+              &nbsp;
               <Button text='会員登録' onClick={() => clickMembership(false)} />
             </div>
             <Modal>
