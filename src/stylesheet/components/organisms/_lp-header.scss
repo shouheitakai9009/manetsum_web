@@ -1,0 +1,31 @@
+.o-lp-header {
+  position: sticky;
+  top: 0;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  &--inner {
+    width: $pc-width;
+  }
+  &--flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &--top {
+    background: #f0f0f0;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--description {
+      background: #f0f0f0;
+      font-size: 13px;
+      color: #909090;
+      margin: 0;
+    }
+  }
+}

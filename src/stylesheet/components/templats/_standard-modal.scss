@@ -1,0 +1,11 @@
+.t-standard-modal {
+  &--content {
+    min-width: 600px;
+    min-height: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 0px 0px 40px rgba(0,0,0,.15);
+  }
+}

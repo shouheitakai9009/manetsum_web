@@ -27,5 +27,5 @@
   "include": [
     "src",
     "stylesheet"
-, "index.tsx"  ]
+, "src/index.tsx"  ]
 }

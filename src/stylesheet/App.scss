@@ -1,6 +1,11 @@
 @import "../../node_modules/modern-normalize/modern-normalize.css";
 
+@import "foundation/font";
 @import "foundation/variables";
 @import "foundation/mixin";
 
+@import "components/atoms/button";
+@import "components/molecules/sitelogo";
+@import "components/organisms/lp-header";
+@import "components/templats/standard-modal";
 @import "components/pages/lp";
